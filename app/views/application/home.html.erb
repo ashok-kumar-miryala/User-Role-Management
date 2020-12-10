@@ -1,0 +1,72 @@
+<section class="text-center m-5">
+    <h1 class="text-center" >Profile</h1>
+    <h1>
+    <%= link_to "Users", users_path %></h1>
+    
+    <p>
+      <strong>Email:</strong>
+        <h5><%= current_user.email %></h5>
+    </p>
+
+    <div class="panel panel-default">
+     <div class="panel-body">
+        <%= image_tag current_user.avatar.small.url%>
+     </div>     
+     <div class="panel-body">
+        <%= current_user.address_line%>
+     </div>     
+    <p>
+      <strong>Name:</strong>
+      <%= current_user.name %>
+    </p>
+
+    <p>
+      <strong>Phone Number:</strong>
+      <%= current_user.phone_number %>
+    </p>
+
+    <p>
+      <strong>Address Line:</strong>
+      <%= current_user.address_line %>
+    </p>
+
+    <p>
+      <strong>Landmark:</strong>
+      <%= current_user.land_mark %>
+    </p>
+
+    <p>
+      <strong>Street:</strong>
+      <%= current_user.street %>
+    </p>
+
+    <p>
+      <strong>City:</strong>
+      <%= current_user.city %>
+    </p>
+
+    <p>
+      <strong>State:</strong>
+      <%= current_user.state %>
+    </p>
+
+   <p>
+      <strong>Pincode:</strong>
+      <%= current_user.pincode %>
+    </p>
+
+   <p>
+      <strong>Role:</strong>
+      <%= current_user.role %>
+    </p>
+   
+    </div>  
+
+    <%= link_to "Edit", edit_user_path(current_user) %>
+    <%=
+        link_to_if(current_user.nil?, "Login", sign_in_path, class: 'btn btn-primary m-5') do
+            link_to('Sign out',  destroy_user_session_path, :method => 'delete', class: 'btn btn-danger m-5')
+        end
+    %>
+
+</section>

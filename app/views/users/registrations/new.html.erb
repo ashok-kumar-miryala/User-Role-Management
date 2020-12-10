@@ -1,0 +1,81 @@
+<h2 class="text-center m-5">Sign up</h2>
+<section class="col-8 offset-2 col-sm-6 offset-sm-3">
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+  <%= render "devise/shared/error_messages", resource: resource %>
+
+  <div class="field">
+    <%= f.label :name %><br />
+    <%= f.text_field :name, autofocus: true %>
+  </div>
+
+  <div class="field">
+    <%= f.label :email %><br />
+    <%= f.email_field :email, autofocus: true, autocomplete: "email", class: 'form-control m-2'  %>
+  </div>
+
+  <div class="field">
+    <%= f.label :password %>
+    <% if @minimum_password_length %>
+    <em>(<%= @minimum_password_length %> characters minimum)</em>
+    <% end %><br />
+    <%= f.password_field :password, autocomplete: "new-password", class: 'form-control m-2'  %>
+  </div>
+
+  <div class="field">
+    <%= f.label :password_confirmation %><br />
+    <%= f.password_field :password_confirmation, autocomplete: "new-password", class: 'form-control m-2'  %>
+  </div>
+
+   <div class="field">
+  <%= f.label :roles %><br>
+     <%= f.select :role, User.roles.keys.map { |w| [w.humanize, w] } %>
+</div>
+
+
+  <div class="field">
+    <%= f.label :phone_number %><br>
+    <%= f.text_field :phone_number %>
+  </div>
+
+  <div class="field">
+    <%= f.label :address_line %><br>
+    <%= f.text_field :address_line %>
+  </div>
+
+    <div class="field">
+    <%= f.label :street %><br>
+    <%= f.text_field :street %>
+  </div>
+
+  <div class="field">
+    <%= f.label :land_mark %><br>
+    <%= f.text_field :land_mark %>
+  </div>
+
+  <div class="field">
+    <%= f.label :city %><br>
+    <%= f.text_field :city %>
+  </div>
+
+  <div class="field">
+    <%= f.label :state %><br>
+    <%= f.text_field :state %>
+  </div>
+
+  <div class="field">
+    <%= f.label :pincode %><br>
+    <%= f.text_field :pincode %>
+  </div>
+
+  <div class="field">
+    <%= f.label :profile_picture %><br>
+    <%= f.file_field :avatar %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit "Sign up", class: 'btn btn-primary m-2'  %>
+  </div>
+<% end %>
+<hr>
+<%= render "users/shared/links" %>
+</section>
