@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   resources :employees
   get 'users/profile'
   get "users" => "users", as: "users"
-  get 'users/show'
+  get 'users/:id/show'=> "users#show", as: "user"
   # get 'users/edit'
   get "users/:id/edit" => "users#edit", as: "edit_user"
   put "users/:id/update" => "users#update", as: "update"
